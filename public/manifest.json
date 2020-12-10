@@ -1,0 +1,21 @@
+{
+  "name": "Beyond Discord",
+  "version": "1.0",
+  "description": "An extension that sends dice roll results from D&D-Beyond to Discord using webhooks",
+  "manifest_version": 2,
+  "permissions": [ "activeTab", "declarativeContent", "storage" ],
+  "background": {
+    "scripts": [ "./js/background.js" ],
+    "persistent": false
+  },
+  "options_page": "options.html",
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "512": "./icons/512.png"
+    }
+  },
+  "icons": {
+    "512": "./icons/512.png"
+  }
+}
