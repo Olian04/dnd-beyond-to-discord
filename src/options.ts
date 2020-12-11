@@ -1,18 +1,16 @@
-let page = document.getElementById('buttonDiv');
+import { render } from 'brynja';
 
 const kButtonColors = ['#3aa757', '#e8453c', '#f9bb2d', '#4688f1'];
 
-function constructOptions(kButtonColors: string[]) {
-  for (let item of kButtonColors) {
-    let button = document.createElement('button');
-    button.style.backgroundColor = item;
-    button.addEventListener('click', function() {
-      chrome.storage.sync.set({color: item}, function() {
-        console.log('color is ' + item);
+render(_=>_
+  .children('button', kButtonColors.length, (_,i)=>_
+    .style({
+      backgroundColor: kButtonColors[i],
+    })
+    .on('click', () => {
+      chrome.storage.sync.set({color: kButtonColors[i]}, function() {
+        console.log('color is ' + kButtonColors[i]);
       })
-    });
-    page.appendChild(button);
-  }
-}
-
-constructOptions(kButtonColors);
+    })
+  )  
+)

@@ -8,6 +8,12 @@
     "scripts": [ "./js/background.js" ],
     "persistent": false
   },
+  "content_scripts": [
+    {
+      "matches": ["https://www.dndbeyond.com/profile/*/characters/*"],
+      "js": ["./js/content.js"]
+    }
+  ],
   "options_page": "options.html",
   "page_action": {
     "default_popup": "popup.html",

@@ -4,7 +4,7 @@
   "description": "",
   "main": "N/A",
   "scripts": {
-    "build": "tsc -p ./tsconfig.json",
+    "build": "rollup --config",
     "clean": "rimraf ./public/js",
     "start": "npm run clean && npm run build"
   },
@@ -19,12 +19,18 @@
   },
   "homepage": "https://github.com/Olian04/dnd-beyond-to-discord#readme",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-typescript": "^8.0.0",
+    "@types/chrome": "0.0.126",
     "@types/rimraf": "^3.0.0",
+    "@types/rollup": "^0.54.0",
     "@types/typescript": "^2.0.0",
+    "brynja": "^3.2.0",
     "rimraf": "^3.0.2",
+    "rollup": "^2.34.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "tslib": "^2.0.3",
     "typescript": "^4.1.2"
-  },
-  "dependencies": {
-    "@types/chrome": "0.0.126"
   }
 }
