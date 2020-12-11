@@ -18,15 +18,6 @@ const typescriptPlugins = () => [
 
 export default [
   {
-    input: './src/background.ts',
-    output: {
-      file: './public/js/background.js',
-      format: 'iife',
-      name: "background"
-    },
-    plugins: typescriptPlugins(),
-  },
-  {
     input: './src/options.ts',
     output: {
       file: './public/js/options.js',
