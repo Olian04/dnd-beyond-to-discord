@@ -1,12 +1,14 @@
 {
   "name": "@olian/dnd-beyond-to-discord",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "N/A",
   "scripts": {
     "build": "rollup --config",
     "clean": "rimraf ./public/js",
-    "start": "npm run clean && npm run build"
+    "start": "npm run clean && npm run build",
+    "zip": "cd public && zip -r BeyondDiscord_$npm_package_version.zip * && mv BeyondDiscord_$npm_package_version.zip ../releases",
+    "package": "npm run clean && npm run build && npm run zip"
   },
   "repository": {
     "type": "git",
