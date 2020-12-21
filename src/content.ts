@@ -1,3 +1,7 @@
+import * as browser from './browser';
+
+console.log(browser);
+
 type RollType = 'check' | 'save' | 'roll' | 'to hit' | 'damage' | 'heal';
 interface RollData {
   type: RollType;
@@ -46,12 +50,15 @@ const sendHook = (embed: Embed) => {
 
   embed['timestamp'] =  new Date().toISOString();
 
-  console.log(embed);
+  console.info('BeyondDiscord: Attempting to send roll', embed);
 
   return new Promise((resolve) => {
-    chrome.storage.sync.get((data) => {
-      if (data.hookURL === undefined) return;
-      resolve(fetch(data.hookURL, {
+    browser.storage.sync.get((data) => {
+      if (data.hookURL === undefined) {
+        console.info('BeyondDiscord: No webhook found. Interrupting.');
+        return;
+      }
+      resolve(fetch(data.hookURL + '?wait=true', {
         method: 'POST',
         mode: 'cors',
         cache: 'no-cache',
@@ -63,9 +70,16 @@ const sendHook = (embed: Embed) => {
           username: characterName,
           avatar_url: characterAvatarURL
         }),
-      }));
+      })
+      );
     })
-  });  
+  })
+    .then((res) => {
+      console.info('BeyondDiscord: Successfully sent roll', res);
+    })
+    .catch((err) => {
+      console.warn('BeyondDiscord: Failed to send roll', err);
+    });
 }
 
 const handleRoll = (roll: RollData) => {

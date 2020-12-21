@@ -1,6 +1,8 @@
 import { render } from 'brynja';
+import * as browser from './browser';
 
-chrome.storage.sync.get((data) => {
+browser.storage.sync.get((data) => {
+  console.log('Rendering', data);
   render(_=>_
     .child('center', _=>_
       .child('p', _=>_
@@ -19,7 +21,7 @@ chrome.storage.sync.get((data) => {
         })
         .on('change', (ev) => {
           const newURL = ev.target.value;
-          chrome.storage.sync.set({
+          browser.storage.sync.set({
             hookURL: newURL,
           });
         })

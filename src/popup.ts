@@ -1,4 +1,6 @@
+import * as browser from './browser';
+
 // Clicking the extension icon should open the options page
-chrome.runtime.openOptionsPage(() => {
+browser.runtime.openOptionsPage(() => {
   window.close();
 });
