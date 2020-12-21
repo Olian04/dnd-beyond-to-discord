@@ -54,6 +54,10 @@ const sendHook = (embed: Embed) => {
 
   return new Promise((resolve) => {
     browser.storage.sync.get((data) => {
+      if (data.disabled) {
+        console.info('BeyondDiscord: Extension disabled. Interrupting.')
+        return;
+      }
       if (data.hookURL === undefined) {
         console.info('BeyondDiscord: No webhook found. Interrupting.');
         return;
@@ -78,7 +82,7 @@ const sendHook = (embed: Embed) => {
       console.info('BeyondDiscord: Successfully sent roll', res);
     })
     .catch((err) => {
-      console.warn('BeyondDiscord: Failed to send roll', err);
+      console.error('BeyondDiscord: Failed to send roll', err);
     });
 }
 
