@@ -8,7 +8,7 @@ A chrome extension that sends dice roll results from D&D-Beyond to Discord using
 
 Chrome: <https://chrome.google.com/webstore/detail/beyond-discord/ljkjmgadfjdjamnnbeeohakojjcmfpka>
 
-Firefox: *awaiting publication*
+Firefox: https://addons.mozilla.org/en-US/firefox/addon/beyond-discord/
 
 ## Usage
 
