@@ -1,6 +1,6 @@
 # Beyond Discord
 
-A chrome extension that sends dice roll results from D&D-Beyond to Discord using webhooks.
+A browser extension that sends dice roll results from D&D-Beyond to Discord using webhooks.
 
 ![Demo image](resources/demo.png)
 
