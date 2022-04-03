@@ -1,8 +1,6 @@
 {
-  "name": "@olian/dnd-beyond-to-discord",
-  "version": "1.2.0",
-  "description": "",
-  "main": "N/A",
+  "version": "1.2.1",
+  "private": true,
   "scripts": {
     "build": "rollup --config",
     "clean": "rimraf ./public/js",

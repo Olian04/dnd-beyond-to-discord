@@ -4,7 +4,7 @@ import { LogMessage } from './type/LogMessage';
 
 const limitStoredLogs = async (numberOfLogsToKeep: number) => {
   const { logs } = (await browser.storage.local.get('logs')) as { logs: LogMessage[] };
-  const logsToKeep = logs.slice(logs.length - numberOfLogsToKeep);
+  const logsToKeep = logs.slice(Math.max(0, logs.length - numberOfLogsToKeep));
   return browser.storage.local.set({
     logs: logsToKeep,
   });

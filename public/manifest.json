@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Beyond Discord",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "An extension that sends dice roll results from D&D-Beyond to Discord using webhooks",
   "author": "Olian04",
 
