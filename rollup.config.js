@@ -43,5 +43,14 @@ export default [
       name: "content"
     },
     plugins: typescriptPlugins(),
+  },
+  {
+    input: './src/viewLogs.ts',
+    output: {
+      file: './public/js/viewLogs.js',
+      format: 'iife',
+      name: "viewLogs"
+    },
+    plugins: typescriptPlugins(),
   }
 ];
